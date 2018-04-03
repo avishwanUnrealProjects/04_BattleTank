@@ -1,0 +1,4 @@
+107:Landscape uses 1/6th storage of StaticMesh
+
+108: File->Save Level As and type a name to replace the "Minimal_Default" map
+When you make map, go to project settings and maps and modes and make sure the "Default Maps" is pointing to the right thing
