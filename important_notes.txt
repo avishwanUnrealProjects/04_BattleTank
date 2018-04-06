@@ -2,3 +2,5 @@
 
 108: File->Save Level As and type a name to replace the "Minimal_Default" map
 When you make map, go to project settings and maps and modes and make sure the "Default Maps" is pointing to the right thing
+
+Manage Landscape: 'Section' is also called 'Component'. X,Y,Z corresponds to a quad measure. Section consists of quads
