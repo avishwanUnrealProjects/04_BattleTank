@@ -4,3 +4,16 @@
 When you make map, go to project settings and maps and modes and make sure the "Default Maps" is pointing to the right thing
 
 Manage Landscape: 'Section' is also called 'Component'. X,Y,Z corresponds to a quad measure. Section consists of quads
+
+Upgrade Engine:
+Launch and then select which project to open. When selecting, you can choose to say "convert in place".
+
+Adding starter content to project afterwards:
+Content Browser->Add New->Add Feature or Content Pack and select starter content
+
+Commenting in BP:
+Select the block you want to comment and hit C
+
+Tank: Open mesh of interest(host). Go to Window->Socket Manager and create socket. Attach mesh of interest(parasite) to the socket.Position socket relative to host.
+In the BP, add component(Static Mesh) under the host and in the component, attach parent socket to socket created above.
+
