@@ -26,4 +26,10 @@ In BluePrint of Tank:
 EventGraph is not the only place to add blueprint to manipulate flow. You can create your own graph as well. It is also an eventgraph just that you cannot rename the original event graph
 You cannot have begin play in both as it wont know where to start.
 
+BluePrint of MainMenu:
+Canvas, Scale, Button, TextBox. Selecting 'isvariable' implies it is interactive so for a click button we want to select it.
+for a background image, static it does not have to be variable.
 
+
+The AimPoint Player UI is referenced in the BP of TankPlayerController. 
+The MainMenu UI is referenced in the level blueprint of MainMenu
