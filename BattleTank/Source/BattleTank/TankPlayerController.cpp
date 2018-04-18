@@ -19,7 +19,6 @@ void ATankPlayerController::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("No Pawn!"));
 	}
-	UE_LOG(LogTemp, Warning, TEXT("Player Controller Begin Play!"));
 }
 
 
