@@ -33,3 +33,7 @@ for a background image, static it does not have to be variable.
 
 The AimPoint Player UI is referenced in the BP of TankPlayerController. 
 The MainMenu UI is referenced in the level blueprint of MainMenu
+
+Game Mode BP -> TankPlayerControllerBP parented to TankPlayerController C++ class
+TankBP parented to Tank C++ class
+TankBP linked to AI Controller which is TankAIController C++ class
