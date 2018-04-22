@@ -61,24 +61,22 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation) const
 		//UE_LOG(LogTemp, Warning, TEXT("LookDirection %s"), *LookDirection.ToString());
 		//3. Line-trace along that look direction and see what we hit.
 		return GetLookVectorHitLocation(HitLocation, LookDirection);
-		
+
 	}*/
 	FHitResult hitResult;
 
 	if (GetHitResultAtScreenPosition(ScreenLocation, ECollisionChannel::ECC_Visibility, false, hitResult))	
 	{
 		HitLocation = hitResult.ImpactPoint;
-		if (hitResult.Distance > (ReachDistance / 100))
-		{
-			HitLocation = FVector(0.0);
-			//UE_LOG(LogTemp, Warning, TEXT("FAR"));
-		}
-		/*FString TheFloatStr = FString::SanitizeFloat(hitResult.Distance);
-		UE_LOG(LogTemp, Warning, TEXT("Hit dist: %s"), *(TheFloatStr));*/
-		//UE_LOG(LogTemp, Warning, TEXT("range"));
-		return true;
-	}	
-	return false;
+		FString TheFloatStr = FString::SanitizeFloat(hitResult.Distance);
+		//UE_LOG(LogTemp, Warning, TEXT("Hit dist: %s"), *(TheFloatStr));	
+	}
+	else
+	{
+		HitLocation = FVector(0.0);
+	}
+	return true;
+	
 }
 
 bool ATankPlayerController::GetLookDirection(FVector2D ScreenLocation, FVector lookdirection) const
@@ -97,7 +95,9 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector& HitLocation, FVect
 		HitLocation = hitResult.Location;
 		//UE_LOG(LogTemp, Warning, TEXT("Hit item: %s"), *(hitResult.GetActor()->GetName()));
 		return true;
-	}	
+	}
+	else
+		HitLocation = FVector(0.0);
 	return false;
 }
 
