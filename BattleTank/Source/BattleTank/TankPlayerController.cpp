@@ -68,7 +68,8 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation) const
 	if (GetHitResultAtScreenPosition(ScreenLocation, ECollisionChannel::ECC_Visibility, false, hitResult))	
 	{
 		HitLocation = hitResult.ImpactPoint;
-		FString TheFloatStr = FString::SanitizeFloat(hitResult.Distance);
+		//UE_LOG(LogTemp, Warning, TEXT("Hit Actor: %s"), *(hitResult.GetActor()->GetName()));
+		//FString TheFloatStr = FString::SanitizeFloat(hitResult.Distance);
 		//UE_LOG(LogTemp, Warning, TEXT("Hit dist: %s"), *(TheFloatStr));	
 	}
 	else

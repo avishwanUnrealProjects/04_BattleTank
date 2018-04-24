@@ -37,3 +37,7 @@ The MainMenu UI is referenced in the level blueprint of MainMenu
 Game Mode BP -> TankPlayerControllerBP parented to TankPlayerController C++ class
 TankBP parented to Tank C++ class
 TankBP linked to AI Controller which is TankAIController C++ class
+
+TankAIController gets access to player tank through world get first player controller get controlled tank.
+Uses that to aim its own tank towards that location.
+
