@@ -41,3 +41,4 @@ TankBP linked to AI Controller which is TankAIController C++ class
 TankAIController gets access to player tank through world get first player controller get controlled tank.
 Uses that to aim its own tank towards that location.
 
+Aiming component contains barrel component. Tank contains the aiming component.
