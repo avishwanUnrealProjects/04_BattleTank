@@ -42,3 +42,7 @@ TankAIController gets access to player tank through world get first player contr
 Uses that to aim its own tank towards that location.
 
 Aiming component contains barrel component. Tank contains the aiming component.
+Barrel is set via Tank BP using a UFUNCTION and this barrel is passed onto the aiming component which sets the barrel it contains
+
+A barrel class is needed in order to create params specific to the barrel such as elevation speed, etc. Don't want to have
+all of that in aiming component itself.

@@ -1,10 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankAimingComponent.h"
-#include "Runtime/Engine/Classes/Components/StaticMeshComponent.h"
-#include "Runtime/Engine/Classes/Kismet/GameplayStaticsTypes.h"
-#include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
-#include "Runtime/Engine/Public/CollisionQueryParams.h"
+#include "Components/StaticMeshComponent.h"
+#include "Kismet/GameplayStaticsTypes.h"
+#include "Kismet/GameplayStatics.h"
+#include "CollisionQueryParams.h"
 
 // Sets default values for this component's properties
 UTankAimingComponent::UTankAimingComponent()
@@ -12,25 +12,6 @@ UTankAimingComponent::UTankAimingComponent()
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
-
-	// ...
-}
-
-
-// Called when the game starts
-void UTankAimingComponent::BeginPlay()
-{
-	Super::BeginPlay();
-
-	// ...
-	
-}
-
-
-// Called every frame
-void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// ...
 }
@@ -52,8 +33,24 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		OutLaunchVelocity, StartLocation, HitLocation, LaunchSpeed, false, 0, 0,
 		ESuggestProjVelocityTraceOption::DoNotTrace))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Firing at %s"), *(OutLaunchVelocity.GetSafeNormal().ToString()));
+		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
+		//UE_LOG(LogTemp, Warning, TEXT("Firing at %s"), *AimDirection.ToString());
+		MoveBarrelTowards(AimDirection);
 	}
 
+}
+
+void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
+{
+	// work out difference between current barrel rotation and aim direction
+	//auto AimRotator = barrel->GetSocketRotation(FName("Projectile"));
+	//UE_LOG(LogTemp, Warning, TEXT("Socket rotation: %s"), *AimRotator.ToString());
+	auto barrelRotator = barrel->GetForwardVector().Rotation();
+	//UE_LOG(LogTemp, Warning, TEXT("rotation: %s"), *barrelRotator.ToString());
+	auto aimRotator = AimDirection.Rotation();
+	auto deltaRotator = aimRotator - barrelRotator;
+	UE_LOG(LogTemp, Warning, TEXT("%s"), *deltaRotator.ToString());
+	// move barrel the right amount this frame
+	// given a max elevation speed and frame time
 }
 
