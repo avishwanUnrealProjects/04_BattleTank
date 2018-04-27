@@ -16,6 +16,8 @@ public:
 	void AimAt(FVector HitLocation);
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void setBarrelReference(UStaticMeshComponent* barrelToSet);
+	UPROPERTY(EditAnywhere, Category = Firing)
+	float LaunchSpeed = 100000; // 1000 m/s
 
 protected:
 	UTankAimingComponent * tankAimingComponent = nullptr;
