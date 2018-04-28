@@ -5,6 +5,7 @@
 #include "Kismet/GameplayStaticsTypes.h"
 #include "Kismet/GameplayStatics.h"
 #include "CollisionQueryParams.h"
+#include "TankBarrel.h"
 
 // Sets default values for this component's properties
 UTankAimingComponent::UTankAimingComponent()
@@ -16,7 +17,7 @@ UTankAimingComponent::UTankAimingComponent()
 	// ...
 }
 
-void UTankAimingComponent::setBarrelReference(UStaticMeshComponent* barrelToSet)
+void UTankAimingComponent::setBarrelReference(UTankBarrel* barrelToSet)
 {
 	barrel = barrelToSet;
 }
@@ -50,7 +51,6 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto aimRotator = AimDirection.Rotation();
 	auto deltaRotator = aimRotator - barrelRotator;
 	UE_LOG(LogTemp, Warning, TEXT("%s"), *deltaRotator.ToString());
-	// move barrel the right amount this frame
-	// given a max elevation speed and frame time
+	
 }
 

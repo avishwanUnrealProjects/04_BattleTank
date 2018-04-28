@@ -41,7 +41,13 @@ TankBP linked to AI Controller which is TankAIController C++ class
 TankAIController gets access to player tank through world get first player controller get controlled tank.
 Uses that to aim its own tank towards that location.
 
-Aiming component contains barrel component. Tank contains the aiming component.
+Tank creates default subobject for Aiming component in its constructor to create component. it is added as protected because UPROPERTY
+cannot allow private
+
+Aiming component contains barrel component. What type is barrel. See BP. It says staticmeshcomponent.
+Look in class viewer for staticmeshcomponent. It ultimately comes of UActorComponent which inherits from UObject.
+So it is USTaticMeshComponent. 
+Tank contains the aiming component.
 Barrel is set via Tank BP using a UFUNCTION and this barrel is passed onto the aiming component which sets the barrel it contains
 
 A barrel class is needed in order to create params specific to the barrel such as elevation speed, etc. Don't want to have
