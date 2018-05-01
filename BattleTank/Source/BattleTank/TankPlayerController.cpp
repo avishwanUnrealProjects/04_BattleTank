@@ -37,8 +37,8 @@ void ATankPlayerController::AimTowardsCrossHair()
 	FVector HitLocation;
 	if (GetSightRayHitLocation(HitLocation))
 	{
-		//UE_LOG(LogTemp, Warning, TEXT("HitLocation: %s"), *(HitLocation.ToString()));
 		// TODO tell controlled tank to aim at this point
+		//UE_LOG(LogTemp, Warning, TEXT("HitLocation: %s"), *(HitLocation.ToString()));
 		GetControlledTank()->AimAt(HitLocation);
 	}
 }
@@ -76,7 +76,10 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation) const
 	else
 	{
 		HitLocation = FVector(0.0);
+		//UE_LOG(LogTemp, Warning, TEXT("NO solution"));
 	}
+	//UE_LOG(LogTemp, Warning, TEXT("HitLocation: %s"), *(HitLocation.ToString()));
+
 	return true;
 	
 }
