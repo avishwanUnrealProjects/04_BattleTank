@@ -21,6 +21,9 @@ Options to create a gamemodeblueprint to attach a different default pawn:
 1) In content browser, C++ classes, Battletank, right click on gamemode and select create blueprint class based on BattleTankGameMode.
 2) In Blueprints in the Tab, select World Override, Create and select BattleTankGameMode.
 
+TankAimingComponent ticks, TankController ticks.
+Why aiming component ticks is because if hit location in world is fixed but player is moving, then barrel needs to move
+accordingly. That's why!
 
 In BluePrint of Tank:
 EventGraph is not the only place to add blueprint to manipulate flow. You can create your own graph as well. It is also an eventgraph just that you cannot rename the original event graph
