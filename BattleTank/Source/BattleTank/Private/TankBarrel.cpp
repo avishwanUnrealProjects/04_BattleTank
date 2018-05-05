@@ -14,6 +14,8 @@ void UTankBarrel::ElevateBarrel(float RelativeSpeed)
 	// update elevation based on change, clamp as well.
 	auto newRawElevation = FMath::Clamp<float>(RelativeRotation.Pitch + ElevationChange, 
 		MinElevationDegrees, MaxElevationDegrees);
+	//UE_LOG(LogTemp, Warning, TEXT("Elevation is %f"), newRawElevation);
+
 	SetRelativeRotation(FRotator(newRawElevation, 0.0, 0.0));
 }
 

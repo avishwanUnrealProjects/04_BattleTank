@@ -7,6 +7,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "CollisionQueryParams.h"
 #include "TankBarrel.h"
+#include "Turret.h"
 
 // Sets default values for this component's properties
 UTankAimingComponent::UTankAimingComponent()
@@ -22,6 +23,12 @@ void UTankAimingComponent::setBarrelReference(UTankBarrel* barrelToSet)
 {
 	barrel = barrelToSet;
 }
+
+void UTankAimingComponent::setTurretReference(UTurret* turretToSet)
+{
+	turret = turretToSet;
+}
+
 void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 {
 	//auto BarrelLocation = barrel->GetComponentLocation();
@@ -39,12 +46,12 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		//UE_LOG(LogTemp, Warning, TEXT("Firing at %s"), *AimDirection.ToString());
 		MoveBarrelTowards(AimDirection);
 		auto Time = GetWorld()->GetTimeSeconds();
-		UE_LOG(LogTemp, Warning, TEXT("%f: Aim direction solution found"), Time);
+		//UE_LOG(LogTemp, Warning, TEXT("%f: Aim direction solution found"), Time);
 	}
 	else
 	{
 		auto Time = GetWorld()->GetTimeSeconds();
-		UE_LOG(LogTemp, Warning, TEXT("%f: No aim direction solution"), Time);
+		//UE_LOG(LogTemp, Warning, TEXT("%f: No aim direction solution"), Time);
 	}
 }
 
@@ -59,6 +66,8 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto deltaRotator = aimRotator - barrelRotator;
 	//UE_LOG(LogTemp, Warning, TEXT("%s"), *deltaRotator.ToString());
 	barrel->ElevateBarrel(deltaRotator.Pitch);
+
+	turret->RotateTurret(deltaRotator.Yaw);
 	
 }
 
