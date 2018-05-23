@@ -9,6 +9,7 @@
 class UTankBarrel;
 class UTurret;
 class UTankAimingComponent;
+class AProjectile;
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -28,6 +29,13 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void Fire() const;
+
+	UPROPERTY(EditAnywhere, Category = Setup)
+		//UClass* ProjectileBP;
+	TSubclassOf<AProjectile> ProjectileBP;
+
+	// Local reference to tank barrel
+	UTankBarrel* barrel = nullptr;
 
 protected:
 	UTankAimingComponent * tankAimingComponent = nullptr;
