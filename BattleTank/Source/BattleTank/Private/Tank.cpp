@@ -55,10 +55,11 @@ void ATank::AimAt(FVector HitLocation)
 
 void ATank::Fire() const
 {
-	UE_LOG(LogTemp, Warning, TEXT("Fire!"));
 	if (!barrel) return;
 
-	GetWorld()->SpawnActor<AProjectile>(ProjectileBP, barrel->GetSocketLocation(FName("Projectile")),
+	auto Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBP, barrel->GetSocketLocation(FName("Projectile")),
 		barrel->GetSocketRotation(FName("Projectile")));
+
+	Projectile->LaunchProjectile(LaunchSpeed);
 }
 
