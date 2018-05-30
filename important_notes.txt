@@ -55,3 +55,9 @@ all of that in aiming component itself.
 TankAimingComponent ticks, TankController ticks.
 Why aiming component ticks is because if hit location in world is fixed but player is moving, then barrel needs to move
 accordingly. That's why!
+
+TSubclassOf:
+https://docs.unrealengine.com/latest/INT/Programming/UnrealArchitecture/TSubclassOf
+
+EditAnywhere - when set, it is exposed to all instances of that BP; all instances can set values independently
+EditDefaultsOnly - edit on tank as whole for all in BP only.

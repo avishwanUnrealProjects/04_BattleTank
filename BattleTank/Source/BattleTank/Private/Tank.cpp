@@ -56,7 +56,7 @@ void ATank::AimAt(FVector HitLocation)
 void ATank::Fire()
 {
 	bool isreloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds;
-	if (barrel && ProjectileBP &&isreloaded) {
+	if (barrel && ProjectileBP && isreloaded) {
 		auto Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBP, barrel->GetSocketLocation(FName("Projectile")),
 			barrel->GetSocketRotation(FName("Projectile")));
 		Projectile->LaunchProjectile(LaunchSpeed);
