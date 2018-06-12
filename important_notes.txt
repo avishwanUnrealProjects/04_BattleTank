@@ -61,3 +61,5 @@ https://docs.unrealengine.com/latest/INT/Programming/UnrealArchitecture/TSubclas
 
 EditAnywhere - when set, it is exposed to all instances of that BP; all instances can set values independently
 EditDefaultsOnly - edit on tank as whole for all in BP only.
+
+Collision tab in BP contains stuff pertaining to setting Physics Material.
